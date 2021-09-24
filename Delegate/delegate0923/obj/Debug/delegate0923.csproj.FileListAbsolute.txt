@@ -1,0 +1,10 @@
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\bin\Debug\delegate0923.exe.config
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\bin\Debug\delegate0923.exe
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\bin\Debug\delegate0923.pdb
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.csprojAssemblyReference.cache
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.Form1.resources
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.Properties.Resources.resources
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.csproj.GenerateResource.cache
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.csproj.CoreCompileInputs.cache
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.exe
+C:\Users\sangw\Desktop\C#_TTL\Delegate\delegate0923\obj\Debug\delegate0923.pdb
