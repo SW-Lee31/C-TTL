@@ -12,7 +12,7 @@ namespace delegate0923_3
 {
     public delegate void DataGetEventHandler(string data);
     public partial class ChildForm : Form
-    {
+    { 
         public DataGetEventHandler dataSendEvent;
 
         public ChildForm()

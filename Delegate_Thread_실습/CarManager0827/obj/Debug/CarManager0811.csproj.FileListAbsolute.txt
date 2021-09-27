@@ -1,0 +1,17 @@
+E:\kb2021_c#\CarManager0811\bin\Debug\CarManager0811.exe.config
+E:\kb2021_c#\CarManager0811\bin\Debug\CarManager0811.exe
+E:\kb2021_c#\CarManager0811\bin\Debug\CarManager0811.pdb
+E:\kb2021_c#\CarManager0811\bin\Debug\CxFlatUI.dll
+E:\kb2021_c#\CarManager0811\bin\Debug\MaterialSkin.dll
+E:\kb2021_c#\CarManager0811\bin\Debug\SunnyUI.Common.dll
+E:\kb2021_c#\CarManager0811\bin\Debug\SunnyUI.dll
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.MainUI.resources
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.Properties.Resources.resources
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.csproj.GenerateResource.cache
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.csproj.CoreCompileInputs.cache
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.csproj.CopyComplete
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.exe
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.pdb
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.AddCustUI.resources
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.SalesUI.resources
+E:\kb2021_c#\CarManager0811\obj\Debug\CarManager0811.csproj.AssemblyReference.cache

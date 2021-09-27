@@ -1,0 +1,10 @@
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\bin\Debug\thread0924.exe.config
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\bin\Debug\thread0924.exe
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\bin\Debug\thread0924.pdb
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.csprojAssemblyReference.cache
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.Form1.resources
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.Properties.Resources.resources
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.csproj.GenerateResource.cache
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.csproj.CoreCompileInputs.cache
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.exe
+C:\Users\sangw\Desktop\C#_TTL\Thread\thread0924\obj\Debug\thread0924.pdb
