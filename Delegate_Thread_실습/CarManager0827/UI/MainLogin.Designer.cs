@@ -74,6 +74,7 @@ namespace CarManager0811.UI
             this.MainUser.Size = new System.Drawing.Size(355, 43);
             this.MainUser.Style = Sunny.UI.UIStyle.Custom;
             this.MainUser.TabIndex = 13;
+            this.MainUser.Text = "guest";
             this.MainUser.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MainLoginCancel

@@ -146,7 +146,7 @@ namespace CarManager0827
 
         private void uiSymbolButton5_Click(object sender, EventArgs e)
         {
-            controllView(new OrderUI(), UC_NAME_ORDER);
+            controllView(new OrderUI(this), UC_NAME_ORDER);
         }
 
         /*

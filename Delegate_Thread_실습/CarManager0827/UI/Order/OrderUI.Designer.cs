@@ -31,26 +31,26 @@ namespace CarManager0811.UI
         {
             this.uiSymbolLabel1 = new Sunny.UI.UISymbolLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radio_double = new Sunny.UI.UIRadioButton();
+            this.ddc_3 = new Sunny.UI.UIRadioButton();
+            this.ddc_2 = new Sunny.UI.UIRadioButton();
             this.ddc_int_val = new Sunny.UI.UIIntegerUpDown();
-            this.radio_actuater = new Sunny.UI.UIRadioButton();
-            this.radio_external = new Sunny.UI.UIRadioButton();
+            this.ddc_1 = new Sunny.UI.UIRadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radio_cmc = new Sunny.UI.UIRadioButton();
-            this.radio_damper = new Sunny.UI.UIRadioButton();
+            this.hp_4 = new Sunny.UI.UIRadioButton();
+            this.hp_3 = new Sunny.UI.UIRadioButton();
+            this.hp_2 = new Sunny.UI.UIRadioButton();
             this.hp_int_val = new Sunny.UI.UIIntegerUpDown();
-            this.radio_csc = new Sunny.UI.UIRadioButton();
-            this.radio_crc = new Sunny.UI.UIRadioButton();
+            this.hp_1 = new Sunny.UI.UIRadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chck_cdmf = new Sunny.UI.UICheckBox();
-            this.chck_pdmf = new Sunny.UI.UICheckBox();
-            this.chck_dmdap = new Sunny.UI.UICheckBox();
             this.dmf_int_val = new Sunny.UI.UIIntegerUpDown();
+            this.d_dmf = new Sunny.UI.UICheckBox();
+            this.p_dmf = new Sunny.UI.UICheckBox();
+            this.c_dmf = new Sunny.UI.UICheckBox();
             this.but_order = new Sunny.UI.UIButton();
             this.uiSymbolLabel2 = new Sunny.UI.UISymbolLabel();
             this.but_delete = new Sunny.UI.UIButton();
             this.but_close = new Sunny.UI.UIButton();
-            this.order_listview = new MaterialSkin.Controls.MaterialListView();
+            this.detail_order = new Sunny.UI.UIListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,10 +75,10 @@ namespace CarManager0811.UI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radio_external);
-            this.groupBox1.Controls.Add(this.radio_actuater);
+            this.groupBox1.Controls.Add(this.ddc_3);
+            this.groupBox1.Controls.Add(this.ddc_2);
             this.groupBox1.Controls.Add(this.ddc_int_val);
-            this.groupBox1.Controls.Add(this.radio_double);
+            this.groupBox1.Controls.Add(this.ddc_1);
             this.groupBox1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox1.Location = new System.Drawing.Point(3, 115);
             this.groupBox1.Name = "groupBox1";
@@ -87,17 +87,29 @@ namespace CarManager0811.UI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dry Double Clutch (DDC)";
             // 
-            // radio_double
+            // ddc_3
             // 
-            this.radio_double.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_double.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_double.Location = new System.Drawing.Point(6, 34);
-            this.radio_double.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_double.Name = "radio_double";
-            this.radio_double.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_double.Size = new System.Drawing.Size(212, 29);
-            this.radio_double.TabIndex = 0;
-            this.radio_double.Text = "더블 클러치 (100,000원)";
+            this.ddc_3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddc_3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.ddc_3.Location = new System.Drawing.Point(486, 34);
+            this.ddc_3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.ddc_3.Name = "ddc_3";
+            this.ddc_3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.ddc_3.Size = new System.Drawing.Size(249, 29);
+            this.ddc_3.TabIndex = 3;
+            this.ddc_3.Text = "External Damper (120,000원)";
+            // 
+            // ddc_2
+            // 
+            this.ddc_2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddc_2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.ddc_2.Location = new System.Drawing.Point(219, 34);
+            this.ddc_2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.ddc_2.Name = "ddc_2";
+            this.ddc_2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.ddc_2.Size = new System.Drawing.Size(266, 29);
+            this.ddc_2.TabIndex = 2;
+            this.ddc_2.Text = "클러치 액츄에이터 (110,000원)";
             // 
             // ddc_int_val
             // 
@@ -110,38 +122,27 @@ namespace CarManager0811.UI
             this.ddc_int_val.TabIndex = 1;
             this.ddc_int_val.Text = "uiIntegerUpDown1";
             this.ddc_int_val.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ddc_int_val.ValueChanged += new Sunny.UI.UIIntegerUpDown.OnValueChanged(this.ddc_int_val_ValueChanged);
             // 
-            // radio_actuater
+            // ddc_1
             // 
-            this.radio_actuater.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_actuater.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_actuater.Location = new System.Drawing.Point(219, 34);
-            this.radio_actuater.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_actuater.Name = "radio_actuater";
-            this.radio_actuater.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_actuater.Size = new System.Drawing.Size(266, 29);
-            this.radio_actuater.TabIndex = 2;
-            this.radio_actuater.Text = "클러치 액츄에이터 (110,000원)";
-            // 
-            // radio_external
-            // 
-            this.radio_external.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_external.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_external.Location = new System.Drawing.Point(486, 34);
-            this.radio_external.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_external.Name = "radio_external";
-            this.radio_external.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_external.Size = new System.Drawing.Size(249, 29);
-            this.radio_external.TabIndex = 3;
-            this.radio_external.Text = "External Damper (120,000원)";
+            this.ddc_1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ddc_1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.ddc_1.Location = new System.Drawing.Point(6, 34);
+            this.ddc_1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.ddc_1.Name = "ddc_1";
+            this.ddc_1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.ddc_1.Size = new System.Drawing.Size(212, 29);
+            this.ddc_1.TabIndex = 0;
+            this.ddc_1.Text = "더블 클러치 (100,000원)";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radio_crc);
-            this.groupBox2.Controls.Add(this.radio_cmc);
-            this.groupBox2.Controls.Add(this.radio_damper);
+            this.groupBox2.Controls.Add(this.hp_4);
+            this.groupBox2.Controls.Add(this.hp_3);
+            this.groupBox2.Controls.Add(this.hp_2);
             this.groupBox2.Controls.Add(this.hp_int_val);
-            this.groupBox2.Controls.Add(this.radio_csc);
+            this.groupBox2.Controls.Add(this.hp_1);
             this.groupBox2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox2.Location = new System.Drawing.Point(3, 223);
             this.groupBox2.Name = "groupBox2";
@@ -150,29 +151,41 @@ namespace CarManager0811.UI
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "HyDrautic Products";
             // 
-            // radio_cmc
+            // hp_4
             // 
-            this.radio_cmc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_cmc.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_cmc.Location = new System.Drawing.Point(393, 34);
-            this.radio_cmc.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_cmc.Name = "radio_cmc";
-            this.radio_cmc.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_cmc.Size = new System.Drawing.Size(157, 29);
-            this.radio_cmc.TabIndex = 3;
-            this.radio_cmc.Text = "CMC (80,000원)";
+            this.hp_4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hp_4.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.hp_4.Location = new System.Drawing.Point(569, 34);
+            this.hp_4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hp_4.Name = "hp_4";
+            this.hp_4.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.hp_4.Size = new System.Drawing.Size(157, 29);
+            this.hp_4.TabIndex = 4;
+            this.hp_4.Text = "CRC (90,000원)";
             // 
-            // radio_damper
+            // hp_3
             // 
-            this.radio_damper.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_damper.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_damper.Location = new System.Drawing.Point(185, 34);
-            this.radio_damper.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_damper.Name = "radio_damper";
-            this.radio_damper.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_damper.Size = new System.Drawing.Size(189, 29);
-            this.radio_damper.TabIndex = 2;
-            this.radio_damper.Text = "Damper (70,000원)";
+            this.hp_3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hp_3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.hp_3.Location = new System.Drawing.Point(393, 34);
+            this.hp_3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hp_3.Name = "hp_3";
+            this.hp_3.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.hp_3.Size = new System.Drawing.Size(157, 29);
+            this.hp_3.TabIndex = 3;
+            this.hp_3.Text = "CMC (80,000원)";
+            // 
+            // hp_2
+            // 
+            this.hp_2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hp_2.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.hp_2.Location = new System.Drawing.Point(185, 34);
+            this.hp_2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hp_2.Name = "hp_2";
+            this.hp_2.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.hp_2.Size = new System.Drawing.Size(189, 29);
+            this.hp_2.TabIndex = 2;
+            this.hp_2.Text = "Damper (70,000원)";
             // 
             // hp_int_val
             // 
@@ -186,36 +199,24 @@ namespace CarManager0811.UI
             this.hp_int_val.Text = "uiIntegerUpDown1";
             this.hp_int_val.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // radio_csc
+            // hp_1
             // 
-            this.radio_csc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_csc.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_csc.Location = new System.Drawing.Point(6, 34);
-            this.radio_csc.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_csc.Name = "radio_csc";
-            this.radio_csc.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_csc.Size = new System.Drawing.Size(160, 29);
-            this.radio_csc.TabIndex = 0;
-            this.radio_csc.Text = "CSC (50,000원)";
-            // 
-            // radio_crc
-            // 
-            this.radio_crc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.radio_crc.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.radio_crc.Location = new System.Drawing.Point(569, 34);
-            this.radio_crc.MinimumSize = new System.Drawing.Size(1, 1);
-            this.radio_crc.Name = "radio_crc";
-            this.radio_crc.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.radio_crc.Size = new System.Drawing.Size(157, 29);
-            this.radio_crc.TabIndex = 4;
-            this.radio_crc.Text = "CRC (90,000원)";
+            this.hp_1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hp_1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.hp_1.Location = new System.Drawing.Point(6, 34);
+            this.hp_1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.hp_1.Name = "hp_1";
+            this.hp_1.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.hp_1.Size = new System.Drawing.Size(160, 29);
+            this.hp_1.TabIndex = 0;
+            this.hp_1.Text = "CSC (50,000원)";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dmf_int_val);
-            this.groupBox3.Controls.Add(this.chck_dmdap);
-            this.groupBox3.Controls.Add(this.chck_pdmf);
-            this.groupBox3.Controls.Add(this.chck_cdmf);
+            this.groupBox3.Controls.Add(this.d_dmf);
+            this.groupBox3.Controls.Add(this.p_dmf);
+            this.groupBox3.Controls.Add(this.c_dmf);
             this.groupBox3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.groupBox3.Location = new System.Drawing.Point(3, 331);
             this.groupBox3.Name = "groupBox3";
@@ -223,42 +224,6 @@ namespace CarManager0811.UI
             this.groupBox3.TabIndex = 63;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "DMF 시스템";
-            // 
-            // chck_cdmf
-            // 
-            this.chck_cdmf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chck_cdmf.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.chck_cdmf.Location = new System.Drawing.Point(6, 25);
-            this.chck_cdmf.MinimumSize = new System.Drawing.Size(1, 1);
-            this.chck_cdmf.Name = "chck_cdmf";
-            this.chck_cdmf.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.chck_cdmf.Size = new System.Drawing.Size(197, 29);
-            this.chck_cdmf.TabIndex = 5;
-            this.chck_cdmf.Text = "C - DMF (50,000원)";
-            // 
-            // chck_pdmf
-            // 
-            this.chck_pdmf.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chck_pdmf.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.chck_pdmf.Location = new System.Drawing.Point(6, 60);
-            this.chck_pdmf.MinimumSize = new System.Drawing.Size(1, 1);
-            this.chck_pdmf.Name = "chck_pdmf";
-            this.chck_pdmf.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.chck_pdmf.Size = new System.Drawing.Size(252, 29);
-            this.chck_pdmf.TabIndex = 6;
-            this.chck_pdmf.Text = "Pendulum DMF (60,000원)";
-            // 
-            // chck_dmdap
-            // 
-            this.chck_dmdap.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chck_dmdap.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.chck_dmdap.Location = new System.Drawing.Point(6, 95);
-            this.chck_dmdap.MinimumSize = new System.Drawing.Size(1, 1);
-            this.chck_dmdap.Name = "chck_dmdap";
-            this.chck_dmdap.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
-            this.chck_dmdap.Size = new System.Drawing.Size(279, 29);
-            this.chck_dmdap.TabIndex = 7;
-            this.chck_dmdap.Text = "Dual Mass Damper (70,000원)";
             // 
             // dmf_int_val
             // 
@@ -272,11 +237,47 @@ namespace CarManager0811.UI
             this.dmf_int_val.Text = "uiIntegerUpDown1";
             this.dmf_int_val.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // d_dmf
+            // 
+            this.d_dmf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.d_dmf.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.d_dmf.Location = new System.Drawing.Point(6, 95);
+            this.d_dmf.MinimumSize = new System.Drawing.Size(1, 1);
+            this.d_dmf.Name = "d_dmf";
+            this.d_dmf.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.d_dmf.Size = new System.Drawing.Size(279, 29);
+            this.d_dmf.TabIndex = 7;
+            this.d_dmf.Text = "Dual Mass Damper (70,000원)";
+            // 
+            // p_dmf
+            // 
+            this.p_dmf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.p_dmf.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.p_dmf.Location = new System.Drawing.Point(6, 60);
+            this.p_dmf.MinimumSize = new System.Drawing.Size(1, 1);
+            this.p_dmf.Name = "p_dmf";
+            this.p_dmf.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.p_dmf.Size = new System.Drawing.Size(252, 29);
+            this.p_dmf.TabIndex = 6;
+            this.p_dmf.Text = "Pendulum DMF (60,000원)";
+            // 
+            // c_dmf
+            // 
+            this.c_dmf.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.c_dmf.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.c_dmf.Location = new System.Drawing.Point(6, 25);
+            this.c_dmf.MinimumSize = new System.Drawing.Size(1, 1);
+            this.c_dmf.Name = "c_dmf";
+            this.c_dmf.Padding = new System.Windows.Forms.Padding(22, 0, 0, 0);
+            this.c_dmf.Size = new System.Drawing.Size(197, 29);
+            this.c_dmf.TabIndex = 5;
+            this.c_dmf.Text = "C - DMF (50,000원)";
+            // 
             // but_order
             // 
             this.but_order.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_order.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.but_order.Location = new System.Drawing.Point(736, 527);
+            this.but_order.Location = new System.Drawing.Point(736, 544);
             this.but_order.MinimumSize = new System.Drawing.Size(1, 1);
             this.but_order.Name = "but_order";
             this.but_order.Size = new System.Drawing.Size(140, 50);
@@ -289,7 +290,7 @@ namespace CarManager0811.UI
             this.uiSymbolLabel2.BackColor = System.Drawing.Color.Transparent;
             this.uiSymbolLabel2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.uiSymbolLabel2.ForeColor = System.Drawing.Color.Black;
-            this.uiSymbolLabel2.Location = new System.Drawing.Point(-58, 483);
+            this.uiSymbolLabel2.Location = new System.Drawing.Point(-58, 500);
             this.uiSymbolLabel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolLabel2.Name = "uiSymbolLabel2";
             this.uiSymbolLabel2.Padding = new System.Windows.Forms.Padding(34, 0, 0, 0);
@@ -305,7 +306,7 @@ namespace CarManager0811.UI
             // 
             this.but_delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_delete.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.but_delete.Location = new System.Drawing.Point(736, 592);
+            this.but_delete.Location = new System.Drawing.Point(736, 609);
             this.but_delete.MinimumSize = new System.Drawing.Size(1, 1);
             this.but_delete.Name = "but_delete";
             this.but_delete.Size = new System.Drawing.Size(140, 50);
@@ -316,36 +317,32 @@ namespace CarManager0811.UI
             // 
             this.but_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.but_close.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
-            this.but_close.Location = new System.Drawing.Point(736, 657);
+            this.but_close.Location = new System.Drawing.Point(736, 674);
             this.but_close.MinimumSize = new System.Drawing.Size(1, 1);
             this.but_close.Name = "but_close";
             this.but_close.Size = new System.Drawing.Size(140, 50);
             this.but_close.TabIndex = 68;
             this.but_close.Text = "닫기";
             // 
-            // order_listview
+            // detail_order
             // 
-            this.order_listview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.order_listview.Depth = 0;
-            this.order_listview.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
-            this.order_listview.FullRowSelect = true;
-            this.order_listview.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.order_listview.HideSelection = false;
-            this.order_listview.Location = new System.Drawing.Point(3, 527);
-            this.order_listview.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.order_listview.MouseState = MaterialSkin.MouseState.OUT;
-            this.order_listview.Name = "order_listview";
-            this.order_listview.OwnerDraw = true;
-            this.order_listview.Size = new System.Drawing.Size(716, 180);
-            this.order_listview.TabIndex = 69;
-            this.order_listview.UseCompatibleStateImageBehavior = false;
-            this.order_listview.View = System.Windows.Forms.View.Details;
+            this.detail_order.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.detail_order.FormatString = "";
+            this.detail_order.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.detail_order.Location = new System.Drawing.Point(9, 544);
+            this.detail_order.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.detail_order.MinimumSize = new System.Drawing.Size(1, 1);
+            this.detail_order.Name = "detail_order";
+            this.detail_order.Padding = new System.Windows.Forms.Padding(2);
+            this.detail_order.Size = new System.Drawing.Size(720, 180);
+            this.detail_order.TabIndex = 69;
+            this.detail_order.Text = "uiListBox1";
             // 
             // OrderUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.order_listview);
+            this.Controls.Add(this.detail_order);
             this.Controls.Add(this.but_close);
             this.Controls.Add(this.but_delete);
             this.Controls.Add(this.uiSymbolLabel2);
@@ -368,25 +365,25 @@ namespace CarManager0811.UI
 
         private Sunny.UI.UISymbolLabel uiSymbolLabel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private Sunny.UI.UIRadioButton radio_external;
-        private Sunny.UI.UIRadioButton radio_actuater;
+        private Sunny.UI.UIRadioButton ddc_3;
+        private Sunny.UI.UIRadioButton ddc_2;
         private Sunny.UI.UIIntegerUpDown ddc_int_val;
-        private Sunny.UI.UIRadioButton radio_double;
+        private Sunny.UI.UIRadioButton ddc_1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private Sunny.UI.UIRadioButton radio_cmc;
-        private Sunny.UI.UIRadioButton radio_damper;
+        private Sunny.UI.UIRadioButton hp_3;
+        private Sunny.UI.UIRadioButton hp_2;
         private Sunny.UI.UIIntegerUpDown hp_int_val;
-        private Sunny.UI.UIRadioButton radio_csc;
-        private Sunny.UI.UIRadioButton radio_crc;
+        private Sunny.UI.UIRadioButton hp_1;
+        private Sunny.UI.UIRadioButton hp_4;
         private System.Windows.Forms.GroupBox groupBox3;
         private Sunny.UI.UIIntegerUpDown dmf_int_val;
-        private Sunny.UI.UICheckBox chck_dmdap;
-        private Sunny.UI.UICheckBox chck_pdmf;
-        private Sunny.UI.UICheckBox chck_cdmf;
+        private Sunny.UI.UICheckBox d_dmf;
+        private Sunny.UI.UICheckBox p_dmf;
+        private Sunny.UI.UICheckBox c_dmf;
         private Sunny.UI.UIButton but_order;
         private Sunny.UI.UISymbolLabel uiSymbolLabel2;
         private Sunny.UI.UIButton but_delete;
         private Sunny.UI.UIButton but_close;
-        private MaterialSkin.Controls.MaterialListView order_listview;
+        private Sunny.UI.UIListBox detail_order;
     }
 }

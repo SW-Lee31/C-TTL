@@ -41,3 +41,4 @@ C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\Ca
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.pdb
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.MainLogin.resources
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.OrderUI.resources
+C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.ValeoOrder.resources

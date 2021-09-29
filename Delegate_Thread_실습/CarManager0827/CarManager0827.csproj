@@ -90,10 +90,16 @@
     <Compile Include="UI\MainLogin.Designer.cs">
       <DependentUpon>MainLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\OrderUI.cs">
+    <Compile Include="UI\Order\ValeoOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Order\ValeoOrder.Designer.cs">
+      <DependentUpon>ValeoOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Order\OrderUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\OrderUI.Designer.cs">
+    <Compile Include="UI\Order\OrderUI.Designer.cs">
       <DependentUpon>OrderUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
@@ -154,8 +160,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\OrderUI.resx">
+    <EmbeddedResource Include="UI\Order\OrderUI.resx">
       <DependentUpon>OrderUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Order\ValeoOrder.resx">
+      <DependentUpon>ValeoOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SalesUI.resx">
       <DependentUpon>SalesUI.cs</DependentUpon>
