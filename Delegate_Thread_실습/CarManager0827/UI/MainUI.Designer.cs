@@ -185,11 +185,11 @@ namespace CarManager0827
             this.helpWin.RectSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.None;
             this.helpWin.Size = new System.Drawing.Size(219, 132);
             this.helpWin.Style = Sunny.UI.UIStyle.Custom;
-            this.helpWin.Symbol = 62108;
+            this.helpWin.Symbol = 62069;
             this.helpWin.SymbolColor = System.Drawing.Color.Black;
             this.helpWin.SymbolSize = 60;
             this.helpWin.TabIndex = 32;
-            this.helpWin.Text = "도움말";
+            this.helpWin.Text = "작업시작";
             this.helpWin.Click += new System.EventHandler(this.helpWin_Click);
             // 
             // adminWin

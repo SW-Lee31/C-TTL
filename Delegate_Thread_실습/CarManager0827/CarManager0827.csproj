@@ -84,22 +84,34 @@
     </Compile>
     <Compile Include="Model\Customer.cs" />
     <Compile Include="DAO\OraMgr.cs" />
+    <Compile Include="UI\Dyeing_thread\DyeingUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dyeing_thread\DyeingUI.Designer.cs">
+      <DependentUpon>DyeingUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dyeing_thread\ProcessUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Dyeing_thread\ProcessUI.Designer.cs">
+      <DependentUpon>ProcessUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\MainLogin.Designer.cs">
       <DependentUpon>MainLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Order\ValeoOrder.cs">
+    <Compile Include="UI\Order_delegate\ValeoOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Order\ValeoOrder.Designer.cs">
+    <Compile Include="UI\Order_delegate\ValeoOrder.Designer.cs">
       <DependentUpon>ValeoOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Order\OrderUI.cs">
+    <Compile Include="UI\Order_delegate\OrderUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Order\OrderUI.Designer.cs">
+    <Compile Include="UI\Order_delegate\OrderUI.Designer.cs">
       <DependentUpon>OrderUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\CommonUtil.cs" />
@@ -145,6 +157,12 @@
     <EmbeddedResource Include="UI\Admin\LoginUI.resx">
       <DependentUpon>LoginUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dyeing_thread\DyeingUI.resx">
+      <DependentUpon>DyeingUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dyeing_thread\ProcessUI.resx">
+      <DependentUpon>ProcessUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MainLogin.resx">
       <DependentUpon>MainLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,10 +178,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UI\Order\OrderUI.resx">
+    <EmbeddedResource Include="UI\Order_delegate\OrderUI.resx">
       <DependentUpon>OrderUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Order\ValeoOrder.resx">
+    <EmbeddedResource Include="UI\Order_delegate\ValeoOrder.resx">
       <DependentUpon>ValeoOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SalesUI.resx">

@@ -38,6 +38,7 @@ namespace CarManager0827
         public const string UC_NAME_SALES = "SalesUI";
         public const string UC_NAME_ADMIN = "AdminUI";
         public const string UC_NAME_ORDER = "OrderUI";
+        public const string UC_NAME_DYEING = "DyeingUI";
     
 
         public MainUI()
@@ -110,7 +111,7 @@ namespace CarManager0827
 
         private void helpWin_Click(object sender, EventArgs e)
         {
-            XMLParser.readXML();
+            controllView(new DyeingUI(this), UC_NAME_DYEING);
         }
 
         private void topLayout_MouseMove(object sender, MouseEventArgs e)
