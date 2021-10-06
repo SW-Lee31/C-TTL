@@ -1,5 +1,6 @@
 ﻿using CarManager0811.Handler;
 using CarManager0811.UI;
+using CarManager0811.UI.Splash;
 using MaterialSkin;
 using MaterialSkin.Controls;
 using oracleTest0827.DAO;
@@ -11,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
@@ -43,12 +45,21 @@ namespace CarManager0827
 
         public MainUI()
         {
+            Thread th = new Thread(new ThreadStart(startSplash));
+            th.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
+            th.Abort();
             centerLayout.Controls.Add(new SalesUI(adapter));
             centerLayout.Dock = DockStyle.Fill;
-            XMLParser.writeXML();
+            /*XMLParser.writeXML();*/
             // 오라클 DB 접속
             OraMgr.Instance.connectDB();
+        }
+
+        public void startSplash()
+        {
+            Application.Run(new SplashUI());
         }
 
         public void controllView(UserControl uc, string viewName)

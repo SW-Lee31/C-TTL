@@ -44,3 +44,4 @@ C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\Ca
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.ValeoOrder.resources
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.DyeingUI.resources
 C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.Dyeing_thread.ProcessUI.resources
+C:\Users\sangw\Desktop\C#_TTL\Delegate_Thread_실습\CarManager0827\obj\Debug\CarManager0811.UI.Splash.SplashUI.resources

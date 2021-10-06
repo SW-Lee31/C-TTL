@@ -122,7 +122,6 @@ namespace CarManager0811.UI
             this.ddc_int_val.TabIndex = 1;
             this.ddc_int_val.Text = "uiIntegerUpDown1";
             this.ddc_int_val.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.ddc_int_val.ValueChanged += new Sunny.UI.UIIntegerUpDown.OnValueChanged(this.ddc_int_val_ValueChanged);
             // 
             // ddc_1
             // 

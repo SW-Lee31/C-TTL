@@ -319,10 +319,5 @@ namespace CarManager0811.UI
             total_price += i_price;
             return i_price;
         }
-
-        private void ddc_int_val_ValueChanged(object sender, int value)
-        {
-
-        }
     }
 }

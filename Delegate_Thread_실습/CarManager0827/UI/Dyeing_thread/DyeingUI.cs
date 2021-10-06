@@ -45,15 +45,15 @@ namespace CarManager0811.UI
 
         private void but_start_Click(object sender, EventArgs e)
         {
-            locationX = this.locationX + this.Size.Width;
-            locationY = this.locationY;
+            locationX = mainUI.Location.X + mainUI.Size.Width;
+            locationY = mainUI.Location.Y;
 
             for (int i = 0; i < process_num.Value; i++)
             {
                 ProcessUI workUI = new ProcessUI(((dyeing_process)i).ToString());
-                workUI.Location = new Point(locationX, locationY + workUI.Height * i);
                 workUI.eventDelMessage += onEventDelMessage;
                 workUI.Show();
+                workUI.Location = new Point(locationX, (locationY) + workUI.Height * i);
                 workUI.thread_start();
                 worklist.Add(workUI);
                 lb_show.Items.Add(string.Format("{0} : {1} 작업시작", DateTime.Now.ToString("G"), (dyeing_process)i));
@@ -64,25 +64,36 @@ namespace CarManager0811.UI
         {
             foreach (ProcessUI ui in worklist)
             {
-                ui.thread_about();
+                ui.thread_abort();
             }
         }
 
         void onEventDelMessage(object sender, string str_result)
         {
-            if (this.InvokeRequired)
-            {
-                this.Invoke(new Action(() =>
-                {
-                    ProcessUI ui = sender as ProcessUI;
-                    lb_show.Items.Add(string.Format("{0} : {1} {2}", DateTime.Now.ToString("G"), ui.Str_work_name, str_result));
-                }));
-            }
-            else
+            this.Invoke(new Action(() =>
             {
                 ProcessUI ui = sender as ProcessUI;
                 lb_show.Items.Add(string.Format("{0} : {1} {2}", DateTime.Now.ToString("G"), ui.Str_work_name, str_result));
-            }
+
+                switch (str_result)
+                {
+                    case "작업 중지":
+                        ui.threadPause();
+                        break;
+                    case "작업 완료":
+                        ui.thread_abort();
+                        ui.Close();
+                        break;
+                    case "작업 재개":
+                        ui.threadResume();
+                        break;
+                }
+            }));
+            /*else
+            {
+                ProcessUI ui = sender as ProcessUI;
+                lb_show.Items.Add(string.Format("{0} : {1} {2}", DateTime.Now.ToString("G"), ui.Str_work_name, str_result));
+            }*/
         }
     }
 }
