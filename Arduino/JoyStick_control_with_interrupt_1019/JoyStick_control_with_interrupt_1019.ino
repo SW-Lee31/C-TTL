@@ -18,6 +18,8 @@ void setup() {
   Serial.begin(9600);
 
   pinMode(SW_pin, INPUT_PULLUP);
+  pinMode(LOC_X, INPUT);
+  pinMode(LOC_Y, INPUT);
   pinMode(BUZ, OUTPUT);
   pinMode(LED_R, OUTPUT);
   pinMode(LED_G, OUTPUT);
@@ -81,11 +83,45 @@ void loop() {
   digitalWrite(LED_B, led_buz_state);
   digitalWrite(LED_G, led_buz_state);
   
-  if (DlocY > 508)
-  {
-    digitalWrite(LED_R, HIGH);
-    digitalWrite(LED_G, HIGH);
-    digitalWrite(LED_B, HIGH);
+  if ((DlocX > -15 && DlocX < 5) && DlocY > 508){
+    setColor(0, 125, 125);
   }
-  
+  else if ((DlocX > -5 && DlocX < 5) && (DlocY > -5 && DlocY < 5)){
+    digitalWrite(LED_R, led_buz_state);
+    digitalWrite(LED_B, led_buz_state);
+    digitalWrite(LED_G, led_buz_state);
+  }
+  else if (DlocX < -505 && DlocY > 508){
+    setColor(125, 0, 125);
+  }
+  else if (DlocX < -505 && (DlocY < 5 && DlocY > -10)){
+    setColor(125, 125, 0);
+  }
+  else if (DlocX < -505 && DlocY < -11){
+    setColor(75, 125, 50);
+  }
+  else if (DlocX < -505 && DlocY > 0){
+    setColor(87, 33, 87);
+  }
+  else if ((DlocX > -505 && DlocX < 0) && DlocY > 0){
+    setColor(88, 125, 88);
+  }
+  else if ((DlocX > -505 && DlocX < 3) && DlocY < 0){
+    setColor(125, 125, 0);
+  }
+  else if (DlocX > 3 && DlocY < -100){
+    setColor(30, 125, 150);
+  }
+  else if (DlocX > 3 && (DlocY > -100 && DlocY < 100)){
+    setColor(99, 0, 77);
+  }
+  else if (DlocX > 3 && DlocY > 100){
+    setColor(93, 77, 111);
+  }
+}
+
+void setColor(int red, int green, int blue){
+  analogWrite(LED_R, red);
+  analogWrite(LED_G, green);
+  analogWrite(LED_B, blue);
 }
