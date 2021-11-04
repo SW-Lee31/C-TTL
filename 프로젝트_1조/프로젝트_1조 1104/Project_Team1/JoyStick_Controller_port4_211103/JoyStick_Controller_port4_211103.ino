@@ -18,8 +18,8 @@ void setup()
   pinMode(led_b, OUTPUT);
   
   attachInterrupt(digitalPinToInterrupt(sw), mode_change, FALLING);
-  attachInterrupt(digitalPinToInterrupt(joysw), machaine_activate, FALLING);
 }
+
 void mode_change()
 {
     mode = !mode;
@@ -47,7 +47,7 @@ void loop()
         Serial.println('F');
       }
       else if (analogRead(joyrx) <= 20){
-        Serial.println('B');
+        machaine_activate();
       }  
       else {
         Serial.println('S');
@@ -59,6 +59,8 @@ void loop()
         digitalWrite(led_g, LOW);
         digitalWrite(led_b, LOW);// 지게 동작 시 빨강
         Serial.println('M');
+        delay(1000);
+        ma_ac = false;
       }
     
   }

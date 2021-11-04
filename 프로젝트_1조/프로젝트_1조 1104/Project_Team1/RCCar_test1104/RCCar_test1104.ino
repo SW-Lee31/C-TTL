@@ -1,4 +1,8 @@
 #include <Servo.h>
+#include <MsTimer2.h>
+
+#define DIST_S 150*58.2
+#define PING_INTERVAL 33
 
 #define servoPin 2
 #define EA 3  // 모터드라이버 EA 핀, 아두이노 디지털 3번 핀에 연결
@@ -13,8 +17,15 @@
 #define echo 6  // 초음파 센서 에코(Echo) 핀, 아두이노 우노 보드의 디지털 6번 핀 연결
 #define trig 7  // 초음파 센서 트리거(Trigger) 핀, 아두이노 우노 보드의 디지털 7번 핀 연결
 Servo servo;
+uint8_t currentSensor = 0;  
+unsigned long pingTimer;
+long dist_r;
 int servo_degree = 0;
 bool mode_flag;
+bool machine_flag;
+int stop_count;
+volatile boolean run_mode = true;
+
 
 void setup() {
   Serial.begin(9600);
@@ -33,42 +44,76 @@ void setup() {
   digitalWrite(EA, HIGH);  // EA 핀 출력 설정
   digitalWrite(EB, HIGH);
   servo.attach(servoPin);
-  servo.write(0);
+  servo.write(servo_degree);
+  pingTimer= millis(); // 초음파 타이머 핑 시간 초기화
   Serial.begin(9600);
+
+  /* MsTimer2::set(1000, trig_ultra);
+  MsTimer2::start();
+  */
 }
 
 void loop() {
-  if(Serial.available()){
-    
-     char cmd= Serial.read();
-     
-     if(cmd == 'A'){
-         mode_Auto();
-      }
-     if(cmd == 'F'){
-        Straight();
-      }
-     if(cmd == 'R'){
-        Right();
-      }
-     if(cmd == 'L'){
-        Left();
-      }
-     if(cmd == 'S'){
+   if (millis() >= pingTimer){
+      pingTimer += PING_INTERVAL;      // 다음 핑타임 설정
+      dist_r = trig_ultra(trig, echo);
+      if (dist_r > 0 && dist_r <= 20){
+        Serial.println("Stuck Activate");
         Stop();
-        servo.write(0);
-     }
-     if (cmd == 'M'){
-      for (int i = 0; i <= 90; i++){
-      servo.write(i);
+        delay(1000);
       }
      }
-
-     if(read_ultrasonic() <= 30){
-       Stop();
-       Serial.println("Stock Found");
-        delay(2500);
+   
+  /*
+   if (dist_r > 0 && dist_r <= 15){
+      Serial.println("Stuck Activate");
+      Stop();
     }
+  */
+     
+  if(Serial.available()){
+     char cmd= Serial.read();
+
+     
+      if(cmd == 'A'){
+          mode_Auto();
+          Serial.println('A');
+        }
+      if(cmd == 'F'){
+          Straight();
+          Serial.println('F');
+        }
+      if(cmd == 'R'){
+          Right();
+          Serial.println('R');
+        }
+      if(cmd == 'L'){
+          Left();
+          Serial.println('L');
+        }
+      if(cmd == 'S'){
+          Stop();
+          servo.write(servo_degree);
+          machine_flag = false;
+        }
+      if (cmd == 'M'){
+        machine_flag = true;
+        Serial.println('M');
+      }
+
+     
+     
+
+     if (machine_flag == true){
+        machine_act(1);
+        Serial.println('J');
+        servo_degree = 0;
+        machine_flag = false;
+      }
+      else if (machine_flag == false){
+        servo_degree = 0;
+        servo.write(servo_degree);
+      }
 
      if (cmd == '1' || cmd == '2'){
       mode_flag = !mode_flag;
@@ -88,15 +133,16 @@ void mode_Auto(){
   Serial.print(R);
   Serial.println(']'); */
   
-  /* if ( (C==HIGH&& R==HIGH&& L==HIGH) && (C==HIGH&&R==HIGH)&&(C==HIGH&&L==HIGH))
+  if ( (C==HIGH&& R==HIGH&& L==HIGH) && (C==HIGH&&R==HIGH)&&(C==HIGH&&L==HIGH))
   {
     Stop();
     delay(2000);
     Re();
     Straight();
+    // StopRun();
   } 
-  */
-  if (C==HIGH)
+  
+  else if (C==HIGH)
   {    
     Re();
     Straight();
@@ -116,10 +162,11 @@ void mode_Auto(){
     Straight();
   }
 }
+
 void Straight()
 {     
-    analogWrite(EA, 175);
-    analogWrite(EB, 175);
+    analogWrite(EA, 150);
+    analogWrite(EB, 150);
     digitalWrite(M_IN1, HIGH);
     digitalWrite(M_IN3, HIGH);  
     digitalWrite(M_IN2, LOW);
@@ -136,8 +183,8 @@ void Stop()
 }
 void Right()
 {     
-    analogWrite(EA, 175);
-    analogWrite(EB, 175);
+    analogWrite(EA, 150);
+    analogWrite(EB, 150);
     digitalWrite(M_IN1, LOW);
     digitalWrite(M_IN3, HIGH);
     digitalWrite(M_IN2, HIGH);
@@ -145,8 +192,8 @@ void Right()
 }
 void Left()
 {
-    analogWrite(EA, 175);
-    analogWrite(EB, 175);
+    analogWrite(EA, 150);
+    analogWrite(EB, 150);
     digitalWrite(M_IN1, HIGH);
     digitalWrite(M_IN3, LOW);
     digitalWrite(M_IN2, LOW);
@@ -154,14 +201,81 @@ void Left()
 }
 void Re()
 {
-  analogWrite(EA, 175);
-  analogWrite(EB, 175);
+  analogWrite(EA, 150);
+  analogWrite(EB, 150);
 }
 
-int read_ultrasonic()  // 초음파 센서 값 읽어오는 함수
+ long trig_ultra(int TRIG, int ECHO)  // 초음파 센서 값 읽어오는 함수
 {
-  digitalWrite(trig, HIGH);  // 초음파 발사
-  digitalWrite(trig, LOW);  // 초음파 발사 정지
-  float distance = pulseIn(echo, HIGH) / 58; // 돌아오는 시간
-  return distance;
+  long dist;
+  digitalWrite(TRIG, LOW); 
+  delayMicroseconds(2); 
+  digitalWrite(TRIG, HIGH); 
+  delayMicroseconds(10);
+  digitalWrite(TRIG, LOW);
+  dist = pulseIn(ECHO, HIGH, DIST_S)/58.2;
+  return(dist);
 }
+
+/*
+ void trig_ultra(){
+  long dist;
+  digitalWrite(trig, LOW); 
+  delayMicroseconds(2); 
+  digitalWrite(trig, HIGH); 
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  dist = pulseIn(echo, HIGH, DIST_S)/58.2;
+  dist_r = dist;
+}
+*/
+
+void machine_act(int i)
+{
+  for (int j = 0; j < i; j++)
+  {
+    for (int servo_degree = 0; servo_degree <= 90; servo_degree++)
+    {
+        servo.write(servo_degree);
+        delay(30);
+    }
+
+      for (int servo_degree = 90; servo_degree >= 0; servo_degree--)
+      {
+        servo.write(servo_degree);
+        delay(30);
+      }
+  }
+}
+
+/* void StopRun()
+{
+  stop_count++;
+  Stop();
+  if(stop_count == 0)
+  {
+    delay(3000);
+  }
+  else if (stop_count  == 1)
+  {
+    Left();
+    delay(500);
+    Right();
+    delay(500);
+    Straight();
+  }
+  else if (stop_count  == 2)
+  {
+    Left();
+    delay(500);
+    Right();
+    delay(500);
+    Straight();
+  }
+  else if (stop_count  == 3)
+  {
+    delay(3000);
+  }
+ 
+}
+ */
